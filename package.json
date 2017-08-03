@@ -18,7 +18,7 @@
     "test-cov": "cross-env NODE_ENV=test nyc npm test",
     "test-cov-d": "open -a 'Google Chrome' ./coverage/lcov-report/index.html",
     "lint": "eslint './src/**/*.js' './test/**/*.js'",
-    "lint-fix": "lint --fix './src/**/*.js' './test/**/*.js'",
+    "lint-fix": "eslint --fix './src/**/*.js' './test/**/*.js'",
     "check": "npm run lint && npm run test-cov",
     "check-d": "npm run test-cov-d",
     "build": "shx mkdir -p dist && babel src -d dist --source-maps inline"
@@ -36,10 +36,10 @@
     "babel-preset-es2015": "6.*",
     "babel-preset-stage-3": "6.*",
     "babel-register": "6.*",
-    "cross-env": "5.*",
+    "cross-env": "^5.0.2",
     "eslint": "4.*",
     "eslint-plugin-import": "2.*",
-    "mocha": "3.*",
+    "mocha": "^3.5.0",
     "nyc": "11.*",
     "shx": "0.*"
   },
