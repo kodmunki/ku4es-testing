@@ -1,7 +1,7 @@
-function waitToAssert(timeout, assertions) {
-  setTimeout(assertions, timeout);
+function wait(timeout) {
+  return new Promise((resolve) => setTimeout(resolve, timeout));
 }
 
 export {
-  waitToAssert
-}
+  wait
+};

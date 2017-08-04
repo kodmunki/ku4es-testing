@@ -1,5 +1,5 @@
-import { waitToAssert } from './testing';
+import { wait } from './testing';
 
 export {
-  waitToAssert
+  wait
 };
