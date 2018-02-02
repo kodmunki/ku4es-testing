@@ -50,7 +50,12 @@
     "shx": "^0.2.2"
   },
   "files": [
-    "./dist"
+    "dist"
   ],
-  "main": "./dist"
+  "main": "dist",
+  "bugs": {
+    "url": "https://github.com/kodmunki/ku4es-testing/issues"
+  },
+  "homepage": "https://github.com/kodmunki/ku4es-testing#readme",
+  "author": "kodmunki"
 }
