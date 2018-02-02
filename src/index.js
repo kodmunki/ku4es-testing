@@ -1,5 +1,9 @@
-import { wait } from './testing';
+import { startServer, stopServer, sendResponse } from './network';
+import Response from './network/Response';
 
 export {
-  wait
+  startServer,
+  stopServer,
+  sendResponse,
+  Response
 };
