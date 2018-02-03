@@ -13,8 +13,8 @@
   },
   "scripts": {
     "reload": "rm -rf ./node_modules && rm -f ./package-lock.json && npm install",
-    "test": "mocha -R spec --compilers js:babel-register --recursive ./test",
-    "test-file": "mocha -R spec --compilers js:babel-register",
+    "test": "mocha -R spec --require babel-register --recursive ./test",
+    "test-file": "mocha -R spec --require babel-register",
     "test-cov": "cross-env NODE_ENV=test nyc npm test",
     "test-cov-d": "open -a 'Google Chrome' ./coverage/lcov-report/index.html",
     "lint": "eslint './src/**/*.js' './test/**/*.js'",
