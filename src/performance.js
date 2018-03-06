@@ -2,7 +2,7 @@ export default class Performance {
 
   /**
    * @constructor Performance
-   * @param {Performance|DateConstructor} [nowable=DateConstructor] - Any object with method `now` returning a time of type number.
+   * @param {Performance|DateConstructor} [nowable=DateConstructor] - Any object having method `now` that returns a time of type number.
    */
   constructor(nowable = Date) {
     this._nowable = nowable;
@@ -10,8 +10,8 @@ export default class Performance {
 
   /**
    * @constructor Performance
-   * @param func
-   * @param iterations
+   * @param {function} func - A function whose body defines the performance test case.
+   * @param {number} [iterations=10000] - The number of times to run func.
    * @returns {number}
    */
   test(func, iterations = 10000) {
