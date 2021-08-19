@@ -1,5 +1,6 @@
 import assert from 'assert';
 import axios from 'axios';
+import { it } from 'mocha';
 import { startServer, stopServer, sendResponse } from '../../src/network';
 
 it('should send response', (done) => {
@@ -13,7 +14,7 @@ it('should send response', (done) => {
     });
 
   sendResponse({ status: 200, response: { test: 'data' } })
-    .tap(response => assert.deepEqual(response.data, { test: 'data' }))
+    .then(response => assert.deepEqual(response.data, { test: 'data' }))
     .then(stopServer)
     .then(done);
 

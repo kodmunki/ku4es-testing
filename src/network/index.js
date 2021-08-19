@@ -1,5 +1,4 @@
 import moxios from 'moxios';
-import { Promise } from 'bluebird';
 
 /**
  * Starts a mock server for Unit Tests that cover code sections
