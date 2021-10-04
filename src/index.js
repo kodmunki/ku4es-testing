@@ -1,11 +1,4 @@
-import Performance from './performance';
-import { startServer, stopServer, sendResponse } from './network';
-import Response from './network/Response';
+export { default as Performance } from './performance';
+export { default as Response } from './network/Response';
+export { startServer, stopServer, sendResponse } from './network';
 
-export {
-  startServer,
-  stopServer,
-  sendResponse,
-  Performance,
-  Response
-};

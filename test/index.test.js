@@ -1,6 +1,6 @@
 import assert from 'assert';
 import { describe, it } from 'mocha';
-import * as index from '../src/index';
+import * as index from '../src';
 
 describe('index Test', () => {
 

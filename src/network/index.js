@@ -7,7 +7,7 @@ import moxios from 'moxios';
  * @function startServer
  * @global
  */
-function startServer() {
+export function startServer() {
   moxios.install();
 }
 
@@ -16,7 +16,7 @@ function startServer() {
  * @function stopServer
  * @global
  */
-function stopServer() {
+export function stopServer() {
   moxios.uninstall();
 }
 
@@ -30,7 +30,7 @@ function stopServer() {
  * calls and you need to send responses back to some or all of them.
  * @returns {*}
  */
-function sendResponse(response, index = 0) {
+export function sendResponse(response, index = 0) {
   return new Promise((resolve, reject) => {
     moxios.wait(() => {
       const tracker = moxios.requests;
@@ -42,9 +42,3 @@ function sendResponse(response, index = 0) {
     });
   });
 }
-
-export {
-  startServer,
-  stopServer,
-  sendResponse
-};

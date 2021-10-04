@@ -1,6 +1,6 @@
 {
   "name": "ku4es-testing",
-  "version": "1.4.7",
+  "version": "1.4.25",
   "description": "kodmunki Utilities for ECMAScript Testing",
   "repository": {
     "type": "git",
@@ -14,25 +14,28 @@
   "scripts": {
     "reload": "rm -rf ./node_modules && rm -f ./package-lock.json && npm i",
     "test": "mocha --timeout 5000 -R spec --require @babel/register --recursive ./test",
-    "test-file": "mocha -R spec --require @babel/register",
-    "test-cov": "NODE_ENV=test nyc npm test",
-    "test-cov-d": "open -a 'Google Chrome' ./coverage/lcov-report/index.html",
+    "test:file": "mocha -R spec --require @babel/register",
+    "test:cov": "NODE_ENV=test nyc npm test",
+    "test:cov:d": "open -a 'Google Chrome' ./coverage/lcov-report/index.html",
     "lint": "eslint './src/**/*.js' './test/**/*.js'",
-    "lint-fix": "eslint --fix './src/**/*.js' './test/**/*.js'",
+    "lint:fix": "eslint --fix './src/**/*.js' './test/**/*.js'",
     "check": "npm run lint && npm run test-cov",
-    "check-d": "npm run test-cov-d",
+    "check:d": "npm run test:covd",
     "docs": "npm run jsdocs && npm run mddocs",
-    "docs-read": "open -a 'Google Chrome' ./jsdoc/index.html",
+    "docs:read": "open -a 'Google Chrome' ./jsdoc/index.html",
     "jsdocs": "rm -rf jsdoc ; jsdoc -c ./jsdoc.json",
     "mddocs": "rm README.API.md ; jsdoc2md --files 'src/**/*.js' > README.API.md",
-    "build": "rm -rf dist && mkdir -p dist && tsc && babel src -d dist --source-maps inline",
-    "prepare": "npm run build"
+    "build": "rm -rf dist && mkdir -p dist && babel src -d dist --source-maps inline",
+    "prepare": "npm run build",
+    "release": "npm run build && npm publish"
   },
   "pre-commit": [
-    "lint-fix",
-    "test-cov"
+    "lint:fix",
+    "test:cov"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "moxios": "^0.4.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.7",
@@ -40,6 +43,7 @@
     "@babel/preset-env": "^7.8.7",
     "@babel/register": "^7.8.6",
     "@babel/runtime": "^7.8.7",
+    "@types/node": "^16.7.13",
     "axios": "^0.21.1",
     "babel-eslint": "^10.1.0",
     "babel-plugin-istanbul": "^6.0.0",
@@ -48,7 +52,6 @@
     "jsdoc": "^3.6.3",
     "jsdoc-to-markdown": "^7.0.1",
     "mocha": "^9.0.3",
-    "moxios": "^0.4.0",
     "nyc": "^15.0.0",
     "pre-commit": "^1.2.2",
     "typescript": "^4.3.5"
@@ -56,10 +59,14 @@
   "files": [
     "dist"
   ],
-  "main": "dist",
-  "types": "./index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "typesVersions": {
-    ">=3.1": { "*": ["ts3.1/*"] }
+    ">=3.1": {
+      "*": [
+        "ts3.1/*"
+      ]
+    }
   },
   "bugs": {
     "url": "https://github.com/kodmunki/ku4es-testing/issues"
